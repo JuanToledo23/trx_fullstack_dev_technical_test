@@ -15,3 +15,7 @@ export type Vehicle = {
   };
   _id: string;
 };
+
+export type VehicleListProps = {
+  vehicles: Array<Vehicle>;
+};

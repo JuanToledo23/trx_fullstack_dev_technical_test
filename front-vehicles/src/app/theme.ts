@@ -5,12 +5,15 @@ import { ThemeOptions } from "@mui/material/styles";
 
 const themeOptions: ThemeOptions = {
   palette: {
-    mode: "dark",
+    mode: "light",
     primary: {
       main: "#d0df00",
     },
     secondary: {
       main: "#eeda50",
+    },
+    error: {
+      main: "#fb5151",
     },
   },
 };

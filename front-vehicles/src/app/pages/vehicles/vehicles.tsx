@@ -1,6 +1,8 @@
 import { fetchRequest } from "@/app/api/serverRequest";
 import GoogleMap from "./components/googleMap/googleMap";
 import VehicleList from "./components/vehicleList/vehicleList";
+import VehicleInformation from "./components/vehicleInformation/vehicleInformation";
+import HeaderList from "./components/headerList/headerList";
 
 export default async function Vehicles() {
   const routeMap = await fetchRequest(
@@ -13,8 +15,11 @@ export default async function Vehicles() {
   return (
     <>
       <GoogleMap routeDetail={routeMap} />
+      <HeaderList />
       <div className="flex">
-        <div className="w-1/4">Info</div>
+        <div className="w-1/4">
+          <VehicleInformation />
+        </div>
         <div className="w-3/4">
           <VehicleList vehicles={vehicleList} />
         </div>

@@ -8,7 +8,7 @@ import theme from "./theme";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Traxi Test",
+  title: "Traxi - Juan Alberto Toledo Tello",
   description: "Developed by Juan Alberto Toledo Tello",
 };
 
