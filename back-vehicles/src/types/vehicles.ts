@@ -7,9 +7,9 @@ export type Vehicle = {
   seating: number;
   insurance: string;
   insuranceNumber: string;
-  BRAND: string;
-  MODEL: string;
-  YEAR: number;
-  COLOR: string;
+  brand: string;
+  model: string;
+  year: number;
+  color: string;
   id?: ObjectId;
 };
