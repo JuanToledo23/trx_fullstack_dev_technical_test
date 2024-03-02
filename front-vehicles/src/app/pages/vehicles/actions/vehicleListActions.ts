@@ -1,7 +1,7 @@
 "use client";
 import { updateSelectedVehicle } from "@/lib/features/vehicleSlice";
 import { useAppDispatch } from "@/lib/hooks";
-import { Vehicle } from "./vehicleTypes";
+import { Vehicle } from "../components/vehicleList/vehicleTypes";
 
 export const useVehicleListActions = () => {
   const dispatch = useAppDispatch();

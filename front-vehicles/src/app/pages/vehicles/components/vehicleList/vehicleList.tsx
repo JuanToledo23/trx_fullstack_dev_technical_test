@@ -1,6 +1,6 @@
 "use client";
 import IconButton from "@mui/material/IconButton";
-import { useVehicleListActions } from "./vehicleListActions";
+import { useVehicleListActions } from "../../actions/vehicleListActions";
 import { Vehicle } from "./vehicleTypes";
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';

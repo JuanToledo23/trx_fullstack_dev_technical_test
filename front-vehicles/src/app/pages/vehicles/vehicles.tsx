@@ -14,8 +14,8 @@ export default async function Vehicles() {
     <>
       <GoogleMap routeDetail={routeMap} />
       <div className="flex">
-        <div className="w-1/3">Info</div>
-        <div className="w-full">
+        <div className="w-1/4">Info</div>
+        <div className="w-3/4">
           <VehicleList vehicles={vehicleList} />
         </div>
       </div>
