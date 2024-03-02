@@ -1,11 +1,17 @@
 import express from "express";
+import cors from "cors";
 import { connectToDatabase } from "./services/database.service";
 import { vehicleRouter } from "./routes/vehicles.router";
 
+const options: cors.CorsOptions = {
+  origin: "*"
+};
+
 const app = express();
 app.use(express.json());
+app.use(cors(options))
 
-const PORT = 3000;
+const PORT = 5050;
 
 connectToDatabase()
   .then(() => {
