@@ -4,6 +4,7 @@ import { paginate } from "../utils/pagination";
 import { ObjectId } from "mongodb";
 import { Vehicle } from "../types/vehicles";
 import { Pagination } from "../types/utils";
+import { getRandomLocation } from "../utils/location";
 
 export const vehicleRouter = express.Router();
 
@@ -13,17 +14,18 @@ vehicleRouter.get("/", async (req: Request, res: Response) => {
   const pages: number = Number(req.query.page ? req.query.page : 1);
   try {
     let vehicles: Array<Vehicle> | Pagination;
-    if (req.query.page)
+    if (req.query.page){
       vehicles = paginate(
-        (await collections.vehicles
+        ((await collections.vehicles
           ?.find({})
-          .toArray()) as unknown as Vehicle[],
+          .toArray()) as unknown as Vehicle[]).map((vehicle: Vehicle) => ({...vehicle, position: getRandomLocation()})),
         pages,
-      ) as Pagination;
-    else
-      vehicles = (await collections.vehicles
+      ) as Pagination;}
+    else{
+      vehicles = ((await collections.vehicles
         ?.find({})
-        .toArray()) as unknown as Vehicle[];
+        .toArray()) as unknown as Vehicle[]).map((vehicle: Vehicle) => ({...vehicle, position: getRandomLocation()}))
+      }
     res.status(200).send(vehicles);
   } catch (error) {
     res.status(500).send(error);
