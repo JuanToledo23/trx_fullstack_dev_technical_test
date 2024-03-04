@@ -5,7 +5,7 @@
   "main": "src/app.mjs",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "start": "node build/index.js",
+    "start": "node dist/index.js",
     "tsc": "tsc",
     "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",
