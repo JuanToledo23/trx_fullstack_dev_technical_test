@@ -1,21 +1,30 @@
 "use client";
-import { useAppSelector } from "@/lib/hooks";
+import { useFormDialogActions } from "@/app/components/formDialog/useFormDialogActions";
+import { useAppSelector } from "@/app/store/hooks";
 import Button from "@mui/material/Button";
-import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
 const VehicleInformation = () => {
   const { selectedVehicle } = useAppSelector((state) => state.vehicles);
+  const { putDialogProps } = useFormDialogActions();
   return (
     <>
       {selectedVehicle && (
-        <div className="w-full max-h-96 max-w-md p-4 pt-0  border border-gray-200 dark:bg-gray-800 dark:border-gray-700 overflow-auto shadow-md">
-          <div className="flex items-center justify-between mb-4 sticky top-0 bg-gray-800 w-full pt-4">
+        <div className="max-h-96 max-w-md p-4 pt-0 border border-gray-200 dark:bg-gray-800 dark:border-gray-700 overflow-auto shadow-md w-1/4">
+          <div className="flex items-center justify-between sticky top-0 bg-gray-800 w-full pt-4">
             <Button
               variant="outlined"
               size="medium"
               color="error"
-              startIcon={<DeleteOutlineOutlinedIcon />}
+              onClick={() =>
+                putDialogProps({
+                  title:
+                    "Are you sure to delete the vehicle with the following ID?",
+                  type: "DELETE",
+                  okText: "OK",
+                  cancelText: "CANCEL",
+                  vehicle: selectedVehicle,
+                })
+              }
             >
               Delete
             </Button>
@@ -23,12 +32,20 @@ const VehicleInformation = () => {
               variant="outlined"
               size="medium"
               color="secondary"
-              startIcon={<EditOutlinedIcon />}
+              onClick={() =>
+                putDialogProps({
+                  title: "EDIT VEHICLE",
+                  type: "EDIT",
+                  okText: "SAVE",
+                  cancelText: "CANCEL",
+                  vehicle: selectedVehicle,
+                })
+              }
             >
               Edit
             </Button>
           </div>
-          <div className="flow-root border-solid border-t-2 border-slate-600">
+          <div className="border-slate-600">
             <ul
               role="list"
               className="divide-y divide-gray-200 dark:divide-gray-700"
@@ -148,7 +165,7 @@ const VehicleInformation = () => {
                       SEATS
                     </p>
                     <p className="text-sm text-gray-300 dark:text-gray-300">
-                      {selectedVehicle.seating}
+                      {selectedVehicle.seats}
                     </p>
                   </div>
                 </div>

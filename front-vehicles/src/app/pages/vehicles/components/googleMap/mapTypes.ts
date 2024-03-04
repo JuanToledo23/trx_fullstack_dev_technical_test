@@ -1,3 +1,7 @@
+export type MapProps = {
+  routeDetail: Array<RouteInfo>;
+};
+
 export type RouteInfo = {
   client_id: string;
   status: string;

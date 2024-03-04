@@ -1,8 +1,16 @@
+export type PaginatedVehicles = {
+  previousPage: number | null;
+  nextPage: number | null;
+  total: number;
+  totalPages: Number;
+  items: Array<Vehicle>;
+};
+
 export type Vehicle = {
   plate: string;
   economicNumber: string;
   vim: string;
-  seating: number;
+  seats: number;
   insurance: string;
   insuranceNumber: string;
   brand: string;
@@ -13,7 +21,7 @@ export type Vehicle = {
     lat: number;
     lng: number;
   };
-  _id: string;
+  _id?: string;
 };
 
 export type VehicleListProps = {
