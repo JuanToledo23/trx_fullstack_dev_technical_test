@@ -12,20 +12,59 @@ vehicleRouter.use(express.json());
 
 vehicleRouter.get("/", async (req: Request, res: Response) => {
   const pages: number = Number(req.query.page ? req.query.page : 1);
+  const perPage: number = Number(req.query.perPage ? req.query.perPage : 10);
   try {
     let vehicles: Array<Vehicle> | Pagination;
-    if (req.query.page){
+    if (req.query.search) {
       vehicles = paginate(
-        ((await collections.vehicles
-          ?.find({})
-          .toArray()) as unknown as Vehicle[]).map((vehicle: Vehicle) => ({...vehicle, position: getRandomLocation()})),
+        (
+          (
+            await collections.vehicles?.find({}).toArray()
+          )?.reverse().filter((vehicle) => {
+            return (
+              vehicle.plate.toLowerCase().includes(req.query.search) ||
+              vehicle.economicNumber.toLowerCase().includes(req.query.search) ||
+              String(vehicle.seats).toLowerCase().includes(req.query.search as string) ||
+              vehicle.insurance.toLowerCase().includes(req.query.search) ||
+              vehicle.insuranceNumber.toLowerCase().includes(req.query.search) ||
+              vehicle.brand.toLowerCase().includes(req.query.search) ||
+              vehicle.model.toLowerCase().includes(req.query.search) ||
+              String(vehicle.year).toLowerCase().includes(req.query.search as string) ||
+              vehicle.color.toLowerCase().includes(req.query.search)
+            );
+          }) as unknown as Vehicle[] 
+        ).map((vehicle: Vehicle) => ({
+          ...vehicle,
+          position: getRandomLocation(),
+        })),
         pages,
-      ) as Pagination;}
-    else{
-      vehicles = ((await collections.vehicles
-        ?.find({})
-        .toArray()) as unknown as Vehicle[]).map((vehicle: Vehicle) => ({...vehicle, position: getRandomLocation()}))
+        perPage
+      ) as Pagination;
+    } else {
+      if (req.query.page) {
+        vehicles = paginate(
+          (
+            (
+              await collections.vehicles?.find({}).toArray()
+            )?.reverse() as unknown as Vehicle[]
+          ).map((vehicle: Vehicle) => ({
+            ...vehicle,
+            position: getRandomLocation(),
+          })),
+          pages,
+          perPage
+        ) as Pagination;
+      } else {
+        vehicles = (
+          (await collections.vehicles
+            ?.find({})
+            .toArray()) as unknown as Vehicle[]
+        ).map((vehicle: Vehicle) => ({
+          ...vehicle,
+          position: getRandomLocation(),
+        }));
       }
+    }
     res.status(200).send(vehicles);
   } catch (error) {
     res.status(500).send(error);
@@ -38,7 +77,7 @@ vehicleRouter.get("/:id", async (req: Request, res: Response) => {
   try {
     const query = { _id: new ObjectId(id) };
     const vehicle = (await collections.vehicles?.findOne(
-      query,
+      query
     )) as unknown as Vehicle;
 
     if (vehicle) {
@@ -60,7 +99,7 @@ vehicleRouter.post("/", async (req: Request, res: Response) => {
       ? res
           .status(201)
           .send(
-            `Successfully created a new vehicle with id ${result.insertedId}`,
+            `Successfully created a new vehicle with id ${result.insertedId}`
           )
       : res.status(500).send("Failed to create a new vehicle.");
   } catch (error) {

@@ -4,7 +4,7 @@ export type Vehicle = {
   plate: string;
   economicNumber: string;
   vim: string;
-  seating: number;
+  seats: number;
   insurance: string;
   insuranceNumber: string;
   brand: string;
