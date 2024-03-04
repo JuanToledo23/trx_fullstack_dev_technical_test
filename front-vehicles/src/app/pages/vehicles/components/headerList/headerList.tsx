@@ -5,7 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useFormDialogActions } from "@/app/components/formDialog/useFormDialogActions";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import TablePagination from "@mui/material/TablePagination";
 import { useVehicleActions } from "../../actions/useVehicleActions";
 import { useAppDispatch, useAppSelector } from "@/app/store/hooks";

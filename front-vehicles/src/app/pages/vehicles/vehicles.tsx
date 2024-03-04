@@ -5,6 +5,7 @@ import VehicleInformation from "./components/vehicleInformation/vehicleInformati
 import HeaderList from "./components/headerList/headerList";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useAppSelector } from "@/app/store/hooks";
+import Footer from "@/app/components/Footer/Footer";
 
 export default function Vehicles() {
   const { loading } = useAppSelector((state) => state.vehicles);
@@ -22,6 +23,7 @@ export default function Vehicles() {
         <VehicleInformation />
         <VehicleList />
       </div>
+      <Footer />
     </>
   );
 }
