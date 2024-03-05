@@ -2,12 +2,12 @@
   "name": "back-vehicles",
   "version": "1.0.0",
   "description": "Backend of trx_fullstack_dev_technical_test",
-  "main": "src/app.mjs",
+  "main": "build/index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "start": "node build/index.js",
+    "start": "ts-node src/index.ts",
     "tsc": "tsc",
-    "build": "rimraf dist && tsc",
+    "build": "npm run build",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist",
     "test": "echo \"Error: no test specified\" && exit 1"
