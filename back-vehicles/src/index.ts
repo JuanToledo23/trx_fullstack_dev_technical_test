@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cors(options));
 
-const PORT = 5050;
+const PORT = 5055;
 
 connectToDatabase()
   .then(() => {
