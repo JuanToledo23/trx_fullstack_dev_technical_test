@@ -54,7 +54,7 @@ export const useVehicleActions = () => {
               message: "Vehicle added successfully",
             });
           });
-        }, 100);
+        }, 500);
       })
       .catch(() => {
         displayNotification({
