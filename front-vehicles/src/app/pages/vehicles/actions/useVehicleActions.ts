@@ -28,17 +28,18 @@ export const useVehicleActions = () => {
 
   const removeVehicle = (id: string) => {
     dispatch(deleteVehiclesService(id))
-      .finally(() => {
-        dispatch(fetchVehicles({ page, perPage }));
-      })
       .then(() => {
-        displayNotification({
-          message: "Vehicle removed correctly",
-        });
+        setTimeout(() => {
+          dispatch(fetchVehicles({ page, perPage })).then(() => {
+            displayNotification({
+              message: "Vehicle removed correctly",
+            });
+          });
+        }, 100);
       })
       .catch(() => {
         displayNotification({
-          message: "Could not delete vehicle",
+          message: "Vehicle could not be deleted",
           type: "error",
         });
       });
@@ -46,13 +47,14 @@ export const useVehicleActions = () => {
 
   const addVehicle = (data: Vehicle) => {
     dispatch(postVehiclesService(data))
-      .finally(() => {
-        dispatch(fetchVehicles({ page, perPage }));
-      })
       .then(() => {
-        displayNotification({
-          message: "Vehicle added successfully",
-        });
+        setTimeout(() => {
+          dispatch(fetchVehicles({ page, perPage })).then(() => {
+            displayNotification({
+              message: "Vehicle added successfully",
+            });
+          });
+        }, 100);
       })
       .catch(() => {
         displayNotification({
@@ -64,18 +66,19 @@ export const useVehicleActions = () => {
 
   const updateVehicle = (data: putType) => {
     dispatch(putVehiclesService(data))
-      .finally(() => {
-        dispatch(fetchVehicles({ page, perPage }));
-        dispatch(updateSelectedVehicle({ ...selectedVehicle, ...data.body }));
-      })
       .then(() => {
-        displayNotification({
-          message: "The vehicle was modified correctly",
-        });
+        setTimeout(() => {
+          dispatch(updateSelectedVehicle({ ...selectedVehicle, ...data.body }));
+          dispatch(fetchVehicles({ page, perPage })).then(() => {
+            displayNotification({
+              message: "The vehicle was modified correctly",
+            });
+          });
+        }, 100);
       })
       .catch(() => {
         displayNotification({
-          message: "The vehicle could not be modified",
+          message: "he vehicle could not be modified",
           type: "error",
         });
       });
