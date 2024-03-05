@@ -6,6 +6,26 @@
 Hola mi nombre es Juan Alberto Toledo Tello y soy un desarrollador FullStack, les presento mi version de la prueba tecnica que me compartieron, saludos.
 
 
+## Demo
+
+[https://trx-fullstack-dev-technical-test.vercel.app/
+](https://trx-fullstack-dev-technical-test.vercel.app/
+)
+
+
+## Deploy
+
+El FrontEnd sé desplego en [Vercel](https://vercel.com/) donde cada vez que se hace un merge a la rama de "main" se despliega esa nueva versión
+
+![10](https://cdn.jsdelivr.net/gh/JuanToledo23/cdns@main/technical_tests/traxion/10.png)
+
+Y el BackEnd utilizando [Firebase Functions](https://firebase.google.com/docs/functions) en el siguiente end point [https://us-central1-backend-vehicles.cloudfunctions.net/vehicles/vehicles](https://us-central1-backend-vehicles.cloudfunctions.net/vehicles/vehicles)
+
+![9](https://cdn.jsdelivr.net/gh/JuanToledo23/cdns@main/technical_tests/traxion/9.png)
+
+
+
+
 ## FrontEnd
 
  - [ReactJS](https://react.dev/)
@@ -76,7 +96,7 @@ Para correr el proyecto tenemos que agregar las siguientes variables de entorno
 FRONT END
 
 - `NEXT_PUBLIC_ROUTE_DETAIL_URL=https://iorm9noapi.execute-api.us-east-1.amazonaws.com/challenge/route/dummy1`
-- `NEXT_PUBLIC_HOST=http://localhost:5055`
+- `NEXT_PUBLIC_HOST=https://us-central1-backend-vehicles.cloudfunctions.net/vehicles`
 - `NEXT_PUBLIC_GOOGLE_API_KEY=AIzaSyDu6D7_Z-zQVFJYlqICtecyksra2iyCi6w`
 
 BACK END
@@ -95,15 +115,6 @@ Instalar las dependencias de los proyeyectos tanto del back y del front es con l
   npm run dev
 ```
     
-## Demo
-
-Se desplego el Front en Vercel, se necesita correr el backend de manera local para su correcto funcionamiento.
-
-[https://trx-fullstack-dev-technical-test.vercel.app/
-](https://trx-fullstack-dev-technical-test.vercel.app/
-)
-
-
 ## Base de datos en MongoDB
 
 ![8](https://cdn.jsdelivr.net/gh/JuanToledo23/cdns@main/technical_tests/traxion/8.png)
