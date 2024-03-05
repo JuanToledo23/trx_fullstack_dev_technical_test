@@ -19,7 +19,7 @@ function Footer() {
   return (
     <div>
       {showFooter && (
-        <div className="fixed w-[280px] bg-gray-800 bottom-0 left-[50%] translate-x-[-50%] h-[100px] flex flex-col items-center justify-center rounded-t-lg">
+        <div className="fixed w-[280px] bg-[#494949] bottom-0 left-[50%] translate-x-[-50%] h-[100px] flex flex-col items-center justify-center rounded-t-lg">
           <b>Developed by</b>
           <Image
             src="/logoJuan.svg"
