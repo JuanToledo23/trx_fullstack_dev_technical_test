@@ -1,8 +1,9 @@
 import { combineSlices, configureStore } from "@reduxjs/toolkit";
 import vehiclesSlice from "./features/vehicleSlice";
 import formSlice from "./features/formSlice";
+import notificationSlice from "./features/systemNotificationSlice";
 
-const rootReducer = combineSlices(vehiclesSlice, formSlice);
+const rootReducer = combineSlices(vehiclesSlice, formSlice, notificationSlice);
 
 export const makeStore = () => {
   return configureStore({
