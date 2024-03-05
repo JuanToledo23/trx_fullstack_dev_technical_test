@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { connectToDatabase } from "./services/database.service";
 import { vehicleRouter } from "./routes/vehicles.router";
+import { onRequest } from "firebase-functions/v1/https";
 
 const options: cors.CorsOptions = {
   origin: "*",
@@ -25,3 +26,5 @@ connectToDatabase()
     console.error("Database connection failed", error);
     process.exit();
   });
+
+export const vehicles = onRequest(app);

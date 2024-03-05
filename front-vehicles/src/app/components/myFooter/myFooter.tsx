@@ -3,7 +3,7 @@ import Image from "next/image";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import IconButton from "@mui/material/IconButton";
 
-function Footer() {
+function MyFooter() {
   const [showFooter, setShowFooter] = useState<boolean>(true);
 
   useEffect(() => {
@@ -41,4 +41,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default MyFooter;

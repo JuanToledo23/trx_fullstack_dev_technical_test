@@ -14,3 +14,4 @@ const paginate = (items, page = 1, perPage = 10) => {
   };
 };
 exports.paginate = paginate;
+//# sourceMappingURL=pagination.js.map

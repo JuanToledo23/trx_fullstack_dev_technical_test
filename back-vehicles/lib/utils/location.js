@@ -11,3 +11,4 @@ const getRandomLocation = () => {
   return { lat: +`19.${lat}`, lng: +`-99.${lng}` };
 };
 exports.getRandomLocation = getRandomLocation;
+//# sourceMappingURL=location.js.map
