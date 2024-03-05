@@ -5,6 +5,8 @@ import VehicleInformation from "./components/vehicleInformation/vehicleInformati
 import HeaderList from "./components/headerList/headerList";
 import LinearProgress from "@mui/material/LinearProgress";
 import { useAppSelector } from "@/app/store/hooks";
+
+import { SystemNotification } from "@/app/components/systemNotification/systemNotification";
 import Footer from "@/app/components/Footer/Footer";
 
 export default function Vehicles() {
@@ -24,6 +26,7 @@ export default function Vehicles() {
         <VehicleList />
       </div>
       <Footer />
+      <SystemNotification />
     </>
   );
 }
