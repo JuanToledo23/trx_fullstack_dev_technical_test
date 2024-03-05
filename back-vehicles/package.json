@@ -4,7 +4,7 @@
   "description": "Backend of trx_fullstack_dev_technical_test",
   "main": "build/index.js",
   "scripts": {
-    "dev": "ts-node-dev src/index.ts",
+    "dev": "node build/index.js",
     "start": "node build/index.js",
     "tsc": "tsc",
     "build": "rimraf dist && tsc",
