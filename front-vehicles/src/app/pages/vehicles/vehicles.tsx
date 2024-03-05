@@ -7,7 +7,7 @@ import LinearProgress from "@mui/material/LinearProgress";
 import { useAppSelector } from "@/app/store/hooks";
 
 import { SystemNotification } from "@/app/components/systemNotification/systemNotification";
-import Footer from "@/app/components/Footer/Footer";
+import Footer from "@/app/components/footer/footer";
 
 export default function Vehicles() {
   const { loading } = useAppSelector((state) => state.vehicles);
